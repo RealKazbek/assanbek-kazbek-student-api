@@ -15,5 +15,5 @@ while `... >> logs/Assanbek_Kazbek_system_report.log` accumulates every run in o
 ## Task 4.3 — Explanation of the controlled pipeline failure
 - On my own branch `test-assanbek-kazbek-pipeline` I changed the test `returnsNotFoundForMissingStudent` to expect HTTP 200 instead of 404.
 - The API correctly returns 404 for a nonexistent student, so the assertion failed, Gradle exited with a non-zero code, the **Test** stage failed and Jenkins skipped **Docker Build** and **Verify** (the pipeline stops on failure, so no image is built from broken code).
-- Fix: `git revert` of the faulty commit restored the correct expectation (404). The next run passed all stages and the image `assanbek-kazbek-student-api:v1.0-assanbek-kazbek` was built and verified.
+- Fix: `git revert` of the faulty commit restored the correct expectation (404). The failed run #1 still used the old tag `v1.0-assanbek-kazbek`; after the version bump to 1.1.0 the next run passed all stages and the image `assanbek-kazbek-student-api:v1.1-assanbek-kazbek` was built and verified.
 - Main and the shared environment were not touched: the error lived only on the test branch.
