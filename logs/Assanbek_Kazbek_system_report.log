@@ -84,3 +84,43 @@ Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
 --- Available disk space (home directory) ---
 Available: 31Gi of 228Gi (85% used) on /System/Volumes/Data
 
+==================================================
+ System report
+==================================================
+Student full name : Assanbek Kazbek
+Date and time     : 2026-10-29 18:44:04 +05
+Current username  : kazbek
+Hostname          : MacBook-Neo-Kazbek.local
+
+--- Operating system and kernel ---
+ProductName:		macOS
+ProductVersion:		27.0.1
+BuildVersion:		26A434
+Kernel            : Darwin 27.0.0 (arm64)
+
+--- CPU ---
+Model             : Apple A18 Pro
+Cores             : 6
+Load average      : 3,77 6,11 5,10
+
+--- Memory ---
+Total RAM         : 8192 MB
+System-wide memory free percentage: 33%
+Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free:                                     4911.
+Pages active:                                  80979.
+Pages inactive:                                77561.
+Pages speculative:                              2413.
+
+--- Disk usage ---
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk2s1s1   228Gi    13Gi    27Gi    32%    484k  286M    0%   /
+/dev/disk2s6     228Gi   5,0Gi    27Gi    16%       5  286M    0%   /System/Volumes/VM
+/dev/disk2s2     228Gi    11Gi    27Gi    29%    1,0k  286M    0%   /System/Volumes/Preboot
+/dev/disk2s4     228Gi    26Mi    27Gi     1%     108  286M    0%   /System/Volumes/Update
+/dev/disk1s2     550Mi   6,0Mi   527Mi     2%       1  5,4M    0%   /System/Volumes/xarts
+/dev/disk1s1     550Mi   6,1Mi   527Mi     2%      39  5,4M    0%   /System/Volumes/iSCPreboot
+/dev/disk1s3     550Mi   6,2Mi   527Mi     2%     884  5,4M    0%   /System/Volumes/Hardware
+/dev/disk2s5     228Gi   171Gi    27Gi    87%    2,2M  286M    1%   /System/Volumes/Data
+/dev/disk2s3     228Gi   1,8Gi    27Gi     7%      73  286M    0%   /Volumes/Recovery
+
