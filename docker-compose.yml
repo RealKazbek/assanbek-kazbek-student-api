@@ -1,0 +1,48 @@
+name: assanbek-kazbek-student-api
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: assanbek-kazbek-db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-studentdb}
+      POSTGRES_USER: ${POSTGRES_USER:-student}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  app:
+    build: .
+    image: assanbek-kazbek-student-api:${IMAGE_TAG:-v1.0-assanbek-kazbek}
+    container_name: assanbek-kazbek-app
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # "db" is the Compose service name, resolved by Docker DNS (not localhost)
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-studentdb}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-student}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      APP_CONTEXT_PATH: /assanbek-kazbek
+      STUDENT_NAME: "Assanbek Kazbek"
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    networks:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+    name: assanbek-kazbek-pgdata
+
+networks:
+  backend:
+    name: assanbek-kazbek-network

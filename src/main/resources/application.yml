@@ -1,0 +1,25 @@
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: ${APP_CONTEXT_PATH:/assanbek-kazbek}
+
+spring:
+  application:
+    name: assanbek-kazbek-student-api
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/studentdb}
+    username: ${SPRING_DATASOURCE_USERNAME:student}
+    password: ${SPRING_DATASOURCE_PASSWORD:student}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+app:
+  student-name: ${STUDENT_NAME:Assanbek Kazbek}
