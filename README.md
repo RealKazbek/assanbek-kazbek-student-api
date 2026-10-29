@@ -4,6 +4,8 @@ Spring Boot CRUD application (Student API) with PostgreSQL, Docker Compose and J
 
 Author: Assanbek Kazbek
 
+Written answers: [docs/ANSWERS.md](docs/ANSWERS.md)
+
 Status: version 1.0 with full CRUD released by Assanbek Kazbek; documentation and usage examples added
 
 ## API
